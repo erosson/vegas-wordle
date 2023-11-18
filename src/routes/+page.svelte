@@ -1,7 +1,9 @@
 <script lang="ts">
 	import * as W from '$lib/words.js';
 	import * as M from '$lib/model.js';
+	import * as S from '$lib/stats.js';
 
+	let stats = S.init();
 	let game = M.init(W.list());
 	let num = 0;
 	const winMessages = ['Genius', 'Magnificent', 'Impressive', 'Splendid', 'Great', 'Phew'];
@@ -14,6 +16,7 @@
 			// sometimes we get "guesslist is empty" while generating the game state.
 			// I don't care to debug why right now, this is a rush job. retry.
 			try {
+				stats = S.push(stats, game);
 				game = M.guessUntilDone(M.init(W.list()));
 				num = 0;
 				break;
@@ -33,7 +36,14 @@
 </script>
 
 <div class="">
-	<button on:click={nextOrReset}>{isDone() ? 'Play again' : 'Spin'}</button>
+	<h1>VEGAS WORDLE 🎰</h1>
+	<button on:click={nextOrReset}>{isDone() ? 'Play again' : 'Guess a word'}</button>
+	{#if num === 0}
+		<p>Press the button to guess a random word.</p>
+		<p>Hints are shown for each letter, just like in Wordle.</p>
+		<p>Guesses will use the hints you've already collected.</p>
+		<p>Double letters might be buggy. Sorry, this was rushed 🪳</p>
+	{/if}
 	<ul style="font-family:monospace">
 		{#each game.guesses.slice(0, num) as guess}
 			<li>
@@ -97,5 +107,8 @@
 	}
 	.hint-green {
 		background-color: green;
+	}
+	button {
+		width: 100%;
 	}
 </style>
