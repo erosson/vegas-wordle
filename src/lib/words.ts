@@ -5,6 +5,6 @@ export const source = 'https://github.com/dwyl/english-words/blob/master/words.t
 
 export function list(): readonly string[] {
     return wordsTxt.split('\n')
-        .map((s) => s.toLowerCase())
-        .filter((s) => /^[a-z]{5}$/.test(s));
+        .map((s) => s.toUpperCase())
+        .filter((s) => /^[A-Z]{5}$/.test(s));
 }
