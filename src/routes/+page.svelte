@@ -40,7 +40,10 @@
 	<button on:click={nextOrReset}>{isDone() ? 'Play again' : 'Guess a word'}</button>
 	{#if num === 0}
 		<p>Press the button to guess a random word.</p>
-		<p>Hints are shown for each letter, just like in Wordle.</p>
+		<p>
+			Hints are shown for each letter, just like in
+			<a target="_blank" href="https://www.nytimes.com/games/wordle">Wordle</a>.
+		</p>
 		<p>Guesses will use the hints you've already collected.</p>
 		<p>Double letters might be buggy. Sorry, this was rushed 🪳</p>
 	{/if}
@@ -110,5 +113,11 @@
 	}
 	button {
 		width: 100%;
+	}
+	a {
+		color: cyan;
+	}
+	a:visited {
+		color: pink;
 	}
 </style>
