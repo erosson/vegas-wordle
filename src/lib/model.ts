@@ -1,4 +1,4 @@
-import { sample } from 'lodash'
+import _ from 'lodash'
 
 export interface Model {
     readonly list: readonly string[]
@@ -18,7 +18,7 @@ export interface Hint {
 
 export function init(list: readonly string[]): Model {
     if (!list.length) throw new Error('empty wordlist')
-    const answer = sample(list) as string
+    const answer = _.sample(list) as string
     const guesses: readonly string[] = []
     return { list, answer, guesses }
 }
@@ -58,7 +58,7 @@ export function narrow(model: Model, guessIndex: number = model.guesses.length):
 function nextGuess(model: Model): string {
     const list = narrow(model)
     if (!list.length) throw new Error('guesslist is empty')
-    return sample(list) as string
+    return _.sample(list) as string
 }
 export function guess(model: Model): Model {
     const g = nextGuess(model)
