@@ -39,7 +39,7 @@
 	<h1>VEGAS WORDLE 🎰</h1>
 	<button on:click={nextOrReset}>{isDone() ? 'Play again' : 'Guess a word'}</button>
 	{#if num === 0}
-		<p>Press the button to guess a random word.</p>
+		<p>Press the "Guess a word" button to guess a random word.</p>
 		<p>
 			Hints are shown for each letter, just like in
 			<a target="_blank" href="https://www.nytimes.com/games/wordle">Wordle</a>.
@@ -113,7 +113,10 @@
 		background-color: green;
 	}
 	button {
-		width: 100%;
+		min-width: 50%;
+		height: 3em;
+		font-weight: bold;
+		font-size: larger;
 	}
 	a {
 		color: cyan;
