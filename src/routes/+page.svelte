@@ -44,7 +44,10 @@
 			Hints are shown for each letter, just like in
 			<a target="_blank" href="https://www.nytimes.com/games/wordle">Wordle</a>.
 		</p>
-		<p>Guesses will use the hints you've already collected.</p>
+		<p>
+			Guesses will use the hints you've already collected. Otherwise, it's random, just like a slot
+			machine
+		</p>
 		<p>Double letters might be buggy. Sorry, this thing was rushed 🪳</p>
 		<p><a href="https://github.com/erosson/vegas-wordle">source code</a></p>
 	{/if}
