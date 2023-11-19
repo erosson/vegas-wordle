@@ -45,7 +45,8 @@
 			<a target="_blank" href="https://www.nytimes.com/games/wordle">Wordle</a>.
 		</p>
 		<p>Guesses will use the hints you've already collected.</p>
-		<p>Double letters might be buggy. Sorry, this was rushed 🪳</p>
+		<p>Double letters might be buggy. Sorry, this thing was rushed 🪳</p>
+		<p><a href="https://github.com/erosson/vegas-wordle">source code</a></p>
 	{/if}
 	<ul style="font-family:monospace">
 		{#each game.guesses.slice(0, num) as guess}
